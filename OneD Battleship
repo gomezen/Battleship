@@ -1,0 +1,50 @@
+
+public class OneDShip {
+private int location, counter;
+private int end;
+private String name;
+int[] board = new int [100];
+	public OneDShip(String x)
+	{
+		location = (int) (Math.random()*10);
+		name = x;
+	}
+	public void board() {
+		for (int i = 0; i<board.length; i++)
+		{
+			if (i == location-1) {
+				board[i]=1;
+			}
+			else if (i == location)
+			{
+				board[i]=1;
+			}
+			else if (i == location+1)
+			{
+				board[i]=1;
+			}
+			else
+			{
+			board[i] = 0;
+			}
+		}
+		
+		
+	}
+	public void hit(int x) {
+		if (board[x-1] == 1) 
+		{
+			System.out.println("You hit " + name);
+			board[x-1]--;
+			counter++;
+		}
+		else
+		{
+			System.out.println("You Missed!");
+		}
+	}
+	public int getCounter()
+	{
+
+			return counter;
+}}
