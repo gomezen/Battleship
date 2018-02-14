@@ -1,0 +1,33 @@
+import java.util.Scanner;
+public class OneDDriver {
+public static void main(String[] args)
+{
+
+	 int x, guesses = 0;
+	 String company;
+	;
+	System.out.println("Welcome to dotcom-Ship v1.0!\nIn this version of the game you"
+			+ " must sink one dotcom company in a 1D array.\nThe rules are just like battleship\nHowever, being a 1D array, you must input a location between 1 and 100 each time you make a guess\nHave fun!");
+	System.out.println("Enrter the name of the dotCom company you wish to sink: ");
+	Scanner input = new Scanner(System.in);
+	company = input.next();
+	OneDShip game = new OneDShip(company);
+	game.board();
+	while (game.getCounter() != 3){ 
+		System.out.println("Enter a location: ");
+		 x = input.nextInt();
+		 guesses++;
+		 game.hit(x);
+	}
+	
+	for (int i = 0; i<100; i++)
+	{
+		System.out.print("*");
+	}
+	System.out.println("");
+	System.out.println("You sunk " + company);
+
+	System.out.println("You finished the Game in "+ guesses + " guesses!");
+}
+}
+
